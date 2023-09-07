@@ -1,3 +1,8 @@
+<div style="float: right;">
+    <img src="advanced_calculus_logo.png" alt="advance_calculus_logo" width="40" height="40">
+</div>
+
+
 # 🔥 Advanced Calculus 2023 Repository
 
 # 📅 Schedule 
