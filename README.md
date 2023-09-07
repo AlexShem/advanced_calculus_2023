@@ -10,21 +10,21 @@ Weekly on Wednesdays
 
 # 📢 Announcemnts
 
-* No MATLAB class on September 13th.
+* No MATLAB classes on September 13th.
 
 # 📚 Content
 
-## Class 1: _Introduction to MATLAB_
+## Seminar 1: _Introduction to MATLAB_
 
 September 6th, 2023
 
-- Контакты (Contacts)
-- Установка Матлаба (Installation of MATLAB)
-- Запуск и настройка (Launching and configuring MATLAB)
-- Переменные и операции над ними (Variables and operations on them)
-- Вектора и матрицы (Vectors and matrices)
-- Удаление переменных (Deleting variables)
-- Комплексные числа (Complex numbers)
-- График многочлена (Plotting polynomials)
-- График произвольной функции (Plotting arbitrary functions)
-- Числа Фибоначчи (Fibonacci numbers)
+- Contacts
+- Installation of MATLAB
+- Launching and configuring MATLAB
+- Variables and operations on them
+- Vectors and matrices
+- Deleting variables
+- Complex numbers
+- Plotting polynomials
+- Plotting arbitrary functions
+- Fibonacci numbers
