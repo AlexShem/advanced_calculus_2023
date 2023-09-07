@@ -8,7 +8,7 @@ Weekly on Wednesdays
 - **Second group**: 16:20 - 17:40
     - Zoom link: https://unil.zoom.us/j/94307723831
 
-# 📢 Announcemnts
+# 📢 Announcements
 
 * No MATLAB classes on September 13th.
 
