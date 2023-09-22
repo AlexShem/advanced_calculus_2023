@@ -35,11 +35,11 @@ September 20th, 2023
 
 - Plots of functions $f(x)$ and $f(x, y)$
 - Contour plots using `contour()`
-- One- and two-dimensional grid methods using `linspace()` and `meshgrid()`, correspondingly
-- Build in methods `fplot()`, `fcontour()`
-- Visualising areas in complex domain $\mathbb{C}$
-- Heron method of calculating a square root of a number
-    - Code
-    - Analysis of the method
-    - Number of iterations until method converges
-    - Dependence from the initial guess $x_0$
+- One- and two-dimensional grid methods using `linspace()` and `meshgrid()`, respectively
+- Built-in methods `fplot()`, `fcontour()`
+- Visualizing areas in the complex domain $\mathbb{C}$
+- Heron's method of calculating the square root of a number
+  - Code
+  - Analysis of the method
+  - Number of iterations until the method converges
+  - Dependence on the initial guess $x_0$
