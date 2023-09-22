@@ -28,3 +28,18 @@ September 6th, 2023
 - Plotting polynomials
 - Plotting arbitrary functions
 - Fibonacci numbers
+
+## Seminar 3: _Plots and Heron method_
+
+September 20th, 2023
+
+- Plots of functions $f(x)$ and $f(x, y)$
+- Contour plots using `contour()`
+- One- and two-dimensional grid methods using `linspace()` and `meshgrid()`, correspondingly
+- Build in methods `fplot()`, `fcontour()`
+- Visualising areas in complex domain $\mathbb{C}$
+- Heron method of calculating a square root of a number
+    - Code
+    - Analysis of the method
+    - Number of iterations until method converges
+    - Dependence from the initial guess $x_0$
