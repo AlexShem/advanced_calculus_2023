@@ -43,3 +43,16 @@ September 20th, 2023
   - Analysis of the method
   - Number of iterations until the method converges
   - Dependence on the initial guess $x_0$
+
+## Seminar 4: Newton Method and Leslie Model
+
+September 27th, 2023
+
+- Coding the Newton-Raphson method
+- Visualizing the domains of attraction of the method
+- Eigenvalues and eigenvectors
+    - Definition
+    - Calculation in MATLAB using `[V, D] = eig(A)`
+- Leslie model statement
+- Approximation of the population size based on the largest absolute eigenvalue of the model's matrix
+
