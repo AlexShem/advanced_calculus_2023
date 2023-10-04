@@ -56,3 +56,11 @@ September 27th, 2023
 - Leslie model statement
 - Approximation of the population size based on the largest absolute eigenvalue of the model's matrix
 
+## Seminar 5: Von Bertalanffy and Logistic models
+
+October 4th, 2023
+
+- Dynamics of the Von Bertalanffy growth function
+- Stationary points and their classification
+- Numerical solution using `ode45()` function
+- Logistic model analysis
