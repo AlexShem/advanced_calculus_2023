@@ -1,4 +1,4 @@
-%% Стабильность стационарных точек (Stability of Stationary Points)
+%% Устойчивость стационарных точек (Stability of Stationary Points)
 
 %% Система с постоянными коэффициентами (System with Constant Coefficients)
 % Рассмотрим следующую систему линейных дифференциальных уравнений с
@@ -113,11 +113,11 @@ hold off;
 % 
 % Тогда новая система имеет вид
 % 
-% $$\left\{ \begin{array}{l} \dot{z_1} = \exp((z_1+1)^2 - z_1 - 1) - 1 \\ \dot{y} = z_1 - z_2 \end{array}\right. \Rightarrow \left\{ \begin{array}{l} \dot{z_1} = \exp(z_1^2 + z_1) - 1 \\ \dot{y} = z_1 - z_2 \end{array}\right.$$
+% $$\left\{ \begin{array}{l} \dot{z_1} = \exp((z_1+1)^2 - z_1 - 1) - 1 \\ \dot{z_2} = z_1 - z_2 \end{array}\right. \Rightarrow \left\{ \begin{array}{l} \dot{z_1} = \exp(z_1^2 + z_1) - 1 \\ \dot{z_2} = z_1 - z_2 \end{array}\right.$$
 % 
 % Линеаризованная система имеет вид
 % 
-% $$\left\{ \begin{array}{l} \dot{z_1} = z_1 \\ \dot{y} = z_1 - z_2 \end{array}\right.$$
+% $$\left\{ \begin{array}{l} \dot{z_1} = z_1 \\ \dot{z_2} = z_1 - z_2 \end{array}\right.$$
 % 
 % Данная система имеет два собственных числа: $\lambda_1 = 1$, $\lambda_2 =
 % -1$. Таким образом, точка $(1, 1)'$ является неустойчивой.
