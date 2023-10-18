@@ -65,23 +65,23 @@ October 4th, 2023
 - Numerical solution using `ode45()` function
 - Logistic model analysis
 
-## Seminar 6: _Stationary points of linear systems with constant coefficients_
+## Seminar 6: _Stationary Points of Linear Systems with Constant Coefficients_
 
 October 11th, 2023
 
-- Matrix of the linear system with constant coefficient
-- Solution of the system in verctor form
-- Typoes of stability (focus, centre, saddle, etc)
+- Matrix of the linear system with constant coefficients
+- Solution of the system in vector form
+- Types of stability (focus, centre, saddle, etc.)
 - Visualisation using `streamslice(x, y, dx, dy)`
 - Transforming complex basis to real
 
-## Seminar 7: _Nonlinear systems and Lotka-Volterra model_
+## Seminar 7: _Nonlinear Systems and the Lotka-Volterra Model_
 
 October 18th, 2023
 
-- Linearisation of a system in the vicinity of stationary point
+- Linearisation of a system in the vicinity of a stationary point
     - Shift of variables
     - Taylor series
-- Solving the system in Lotka-Volterra model using `ode45`
-- Comparting the trjectory's ``energy'' to the corresponding isoline of the system's first integral
-- Dependence of the $C$ and $L^2$ norms of the error depending on the integration time step $tau$
+- Solving the system using the Lotka-Volterra model with `ode45`
+- Comparing the trajectory's "energy" to the corresponding isoline of the system's first integral
+- Dependence of the $C$ and $L^2$ norms of the error on the integration time step $\tau$
