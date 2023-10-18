@@ -44,7 +44,7 @@ September 20th, 2023
   - Number of iterations until the method converges
   - Dependence on the initial guess $x_0$
 
-## Seminar 4: Newton Method and Leslie Model
+## Seminar 4: _Newton Method and Leslie Model_
 
 September 27th, 2023
 
@@ -56,7 +56,7 @@ September 27th, 2023
 - Leslie model statement
 - Approximation of the population size based on the largest absolute eigenvalue of the model's matrix
 
-## Seminar 5: Von Bertalanffy and Logistic models
+## Seminar 5: _Von Bertalanffy and Logistic models_
 
 October 4th, 2023
 
@@ -64,3 +64,24 @@ October 4th, 2023
 - Stationary points and their classification
 - Numerical solution using `ode45()` function
 - Logistic model analysis
+
+## Seminar 6: _Stationary points of linear systems with constant coefficients_
+
+October 11th, 2023
+
+- Matrix of the linear system with constant coefficient
+- Solution of the system in verctor form
+- Typoes of stability (focus, centre, saddle, etc)
+- Visualisation using `streamslice(x, y, dx, dy)`
+- Transforming complex basis to real
+
+## Seminar 7: _Nonlinear systems and Lotka-Volterra model_
+
+October 18th, 2023
+
+- Linearisation of a system in the vicinity of stationary point
+    - Shift of variables
+    - Taylor series
+- Solving the system in Lotka-Volterra model using `ode45`
+- Comparting the trjectory's ``energy'' to the corresponding isoline of the system's first integral
+- Dependence of the $C$ and $L^2$ norms of the error depending on the integration time step $tau$
