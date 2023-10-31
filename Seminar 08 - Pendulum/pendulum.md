@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to an intriguing journey where physics meets applied mathematics! Today, we are going to delve deep into the oscillatory world of pendulums. We will not only simulate a pendulum's motion but also approximate its behaviour, visualize its phase portrait, and much more.
+Welcome to an intriguing journey where physics meets applied mathematics! Today, we're diving into the oscillatory world of pendulums. We'll model a pendulum, simulate its motion, approximate its behaviour, visualize its phase portrait, and much more.
 
 ---
 
@@ -25,27 +25,57 @@ L = 1;     % Length of the pendulum (m)
 omega = sqrt(g/L);  % Angular frequency (rad/s)
 ```
 
-Here, we assume a simple pendulum system with a length `L` of 1 metre and account for Earth's gravity, `g`, at \(9.81 \, \text{m/s}^2\).
-
 ### Initial Conditions
 
 ```matlab
 z_0 = [0.1; 0.1];  % Initial angle and angular velocity
 ```
 
-We consider a near-equilibrium initial condition with a slight initial displacement and angular velocity.
-
 ---
 
 ## The Mathematical Model
 
-We use the second-order ordinary differential equation (ODE) to describe our pendulum system:
+### The Original Equation
+
+The original second-order ordinary differential equation (ODE) to describe our pendulum system is:
 
 \[
 \frac{d^2 \theta}{dt^2} = -\omega^2 \sin(\theta)
 \]
 
-We'll solve this equation numerically using Matlab's `ode45`.
+### Small Angle Approximation
+
+In the original equation, we often approximate \(\sin(\theta)\) as \(\theta\) when \(\theta\) is small. This simplification yields:
+
+\[
+\frac{d^2 \theta}{dt^2} \approx -\omega^2 \theta
+\]
+
+### Conversion to First-Order ODEs
+
+The second-order ODE can be converted into a system of two first-order ODEs as follows:
+
+Let \(z_1 = \theta\) and \(z_2 = \frac{d\theta}{dt}\).
+
+Then,
+\[
+\frac{dz_1}{dt} = z_2
+\]
+\[
+\frac{dz_2}{dt} = -\omega^2 \sin(z_1)
+\]
+
+Here's how this is implemented in Matlab:
+
+```matlab
+function dz = pendulum_system(t, z, omega)
+    dz = [z(2); -omega^2 * sin(z(1))];
+end
+```
+
+### Numerical Solution
+
+We'll solve this system of equations numerically using Matlab's `ode45`.
 
 ```matlab
 T = 10;  % Total time (s)
@@ -57,7 +87,7 @@ tspan = linspace(0, T, 101);  % Time span
 
 ## Approximate Solution
 
-We also consider an approximate solution given by:
+For the approximated equation, the solution is:
 
 \[
 \theta(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t)
@@ -76,8 +106,6 @@ c2 = z_0(2)/omega;
 
 ### Angle vs Time
 
-We use a comet plot to visualise how the angle changes over time and overlay the approximate solution.
-
 ```matlab
 figure(1);
 comet(t, theta);
@@ -86,8 +114,6 @@ plot(t, c1*cos(omega*t) + c2*sin(omega*t), '--k')
 ```
 
 ### Cartesian Coordinates
-
-We plot the real-time motion of the pendulum by converting the angle to Cartesian coordinates.
 
 ```matlab
 x_pos = sin(theta);
@@ -110,8 +136,6 @@ end
 
 ## Phase Portraits
 
-We plot the phase portrait to explore the dynamical system's behaviour further.
-
 ```matlab
 [z_1, z_2] = meshgrid(linspace(-5*pi, 5*pi, 31), linspace(-4*pi, 4*pi, 31));
 dz_1 = z_2;
@@ -129,4 +153,4 @@ title('Pendulum phase portrait');
 
 ## Conclusion
 
-Congratulations! You have successfully explored a pendulum system's dynamics using applied mathematics tools. We solved it both numerically and analytically, visualised its motion, and even understood its phase portrait. This report provides a hands-on approach to understanding complex systems, reinforcing the power and elegance of applied mathematics.
+You've successfully navigated through the complexities of pendulum dynamics using the tools of applied mathematics. You've solved it numerically and analytically, visualised its motion, understood its phase portrait, and even delved into the approximations and mathematical transformations that make such analyses possible.
