@@ -68,9 +68,11 @@ $$\frac{d}{d t}\theta(0) \equiv \theta_0' = c_2 \omega.$$
 Пусть $z_1 = \theta$ и $z_2 = \frac{d\theta}{dt}$.
 
 Тогда,
+
 $$
 \frac{dz_1}{dt} = z_2
 $$
+
 $$
 \frac{dz_2}{dt} = -\omega^2 \sin(z_1)
 $$
@@ -103,7 +105,7 @@ $$
 \theta(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t)
 $$
 
-где $ c_1 = z_0(1) $ и $ c_2 = \frac{z_0(2)}{\omega} $.
+где $c_1 = z_0(1)$ и $c_2 = \frac{z_0(2)}{\omega}$.
 
 ```matlab
 c1 = z_0(1);
