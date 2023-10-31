@@ -39,31 +39,41 @@ z_0 = [0.1; 0.1];  % Initial angle and angular velocity
 
 The original second-order ordinary differential equation (ODE) to describe our pendulum system is:
 
-\[
+$$
 \frac{d^2 \theta}{dt^2} = -\omega^2 \sin(\theta)
-\]
+$$
 
 ### Small Angle Approximation
 
-In the original equation, we often approximate \(\sin(\theta)\) as \(\theta\) when \(\theta\) is small. This simplification yields:
+In the original equation, we often approximate $\sin(\theta)$ as $\theta$ when $\theta$ is small. This simplification yields:
 
-\[
+$$
 \frac{d^2 \theta}{dt^2} \approx -\omega^2 \theta
-\]
+$$
+
+Solving for $\theta(t)$ we get
+
+$$\theta(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t),$$
+
+where constants $c_1$ and $c_2$ are determined from the initial conditions:
+
+$$\theta(0) \equiv \theta_0 = c_1,$$
+
+$$\frac{d}{d t}\theta(0) \equiv \theta_0' = c_2 \omega.$$
 
 ### Conversion to First-Order ODEs
 
 The second-order ODE can be converted into a system of two first-order ODEs as follows:
 
-Let \(z_1 = \theta\) and \(z_2 = \frac{d\theta}{dt}\).
+Let $z_1 = \theta$ and $z_2 = \frac{d\theta}{dt}$.
 
 Then,
-\[
+$$
 \frac{dz_1}{dt} = z_2
-\]
-\[
+$$
+$$
 \frac{dz_2}{dt} = -\omega^2 \sin(z_1)
-\]
+$$
 
 Here's how this is implemented in Matlab:
 
@@ -89,11 +99,11 @@ tspan = linspace(0, T, 101);  % Time span
 
 For the approximated equation, the solution is:
 
-\[
+$$
 \theta(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t)
-\]
+$$
 
-where \( c_1 = z_0(1) \) and \( c_2 = \frac{z_0(2)}{\omega} \).
+where $ c_1 = z_0(1) $ and $ c_2 = \frac{z_0(2)}{\omega} $.
 
 ```matlab
 c1 = z_0(1);
