@@ -1,0 +1,199 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pendulum</title><meta name="generator" content="MATLAB 9.11"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2023-10-31"><meta name="DC.source" content="main_pendulum.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Pendulum</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Constants and initial conditions</a></li><li><a href="#2">Numerical solution</a></li><li><a href="#3">Approximate solution</a></li><li><a href="#4">Visualization</a></li><li><a href="#6">Phase portrait</a></li></ul></div><h2 id="1">Constants and initial conditions</h2><pre class="codeinput">g = 9.81;
+L = 1;
+omega = sqrt(g/L);
+
+z_0 = [4*pi/6; -2];
+<span class="comment">% z_0 = [.1; .1];</span>
+</pre><h2 id="2">Numerical solution</h2><p>The numerical solution of <img src="main_pendulum_eq16164101440305279500.png" alt="$d^2(z)/(dt)^2 = -\omega^2 z$" style="width:123px;height:16px;"> for the time span [0, T]</p><pre class="codeinput">T = 10;
+tspan = linspace(0, T, 101);
+
+[t, z] = ode45(@(t, z) pendulum_system(t, z, omega), tspan, z_0);
+theta = z(:, 1);
+</pre><h2 id="3">Approximate solution</h2><p><img src="main_pendulum_eq11268347821252368215.png" alt="$$ z(t) = c_1 \cos(\omega t) + c_2*\sin(\omega t) $$" style="width:191px;height:15px;"></p><p><img src="main_pendulum_eq17307189693957079304.png" alt="$$dz/dt(t) = -c_1 \omega \sin(\omega t) + c_2 \omega \cos(\omega t)$$" style="width:239px;height:15px;"></p><p><img src="main_pendulum_eq15176033848154371081.png" alt="$$z(0) = c_1$$" style="width:56px;height:15px;"></p><p><img src="main_pendulum_eq11829414992796615852.png" alt="$$dz/dt(0) = c_2 \omega$$" style="width:95px;height:15px;"></p><pre class="codeinput">c1 = z_0(1);
+c2 = z_0(2)/omega;
+</pre><h2 id="4">Visualization</h2><p>The pendulum angle as a function of time</p><pre class="codeinput">figure(1);
+comet(t, theta);
+hold <span class="string">on</span>;
+plot(t, c1*cos(omega*t) + c2*sin(omega*t), <span class="string">'--k'</span>)
+hold <span class="string">off</span>
+</pre><img vspace="5" hspace="5" src="main_pendulum_01.png" alt=""> <p>The pendulum position as a function of time</p><pre class="codeinput">x_pos = sin(theta);
+y_pos = -cos(theta);
+
+figure(2);
+<span class="keyword">for</span> k = 1 : length(t)
+    plot(L*x_pos(k), L*y_pos(k), <span class="string">'ok'</span>, <span class="string">'MarkerFaceColor'</span>, <span class="string">'k'</span>);
+    hold <span class="string">on</span>;
+    line([0 L*x_pos(k)], [0 L*y_pos(k)], <span class="string">'Color'</span>, <span class="string">'k'</span>);
+    hold <span class="string">off</span>;
+    title([<span class="string">'Time = '</span> num2str(t(k))]);
+    axis <span class="string">equal</span>;
+    axis([-L, L, -L, L]);
+    drawnow;
+<span class="keyword">end</span>
+</pre><img vspace="5" hspace="5" src="main_pendulum_02.png" alt=""> <h2 id="6">Phase portrait</h2><pre class="codeinput">[z_1, z_2] = meshgrid(linspace(-5*pi, 5*pi, 31), linspace(-4*pi, 4*pi, 31));
+dz_1 = z_2;
+dz_2 = -omega^2*sin(z_1);
+
+<span class="comment">% Quiver plot</span>
+figure(3);
+quiver(z_1, z_2, dz_1, dz_2);
+grid <span class="string">on</span>;
+xlabel(<span class="string">'$\theta$'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 16);
+ylabel(<span class="string">'$\dot{\theta}$'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 16, <span class="string">'Rotation'</span>, 0);
+title(<span class="string">'Pendulum phase portrait'</span>);
+
+<span class="comment">% Stream slice plot (trajectories)</span>
+figure(4);
+streamslice(z_1, z_2, dz_1, dz_2);
+xlabel(<span class="string">'$\theta$'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 16);
+ylabel(<span class="string">'$\dot{\theta}$'</span>, <span class="string">'Interpreter'</span>, <span class="string">'latex'</span>, <span class="string">'FontSize'</span>, 16, <span class="string">'Rotation'</span>, 0);
+title(<span class="string">'Pendulum phase portrait'</span>);
+</pre><img vspace="5" hspace="5" src="main_pendulum_03.png" alt=""> <img vspace="5" hspace="5" src="main_pendulum_04.png" alt=""> <p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Pendulum
+
+%% Constants and initial conditions
+g = 9.81;
+L = 1;
+omega = sqrt(g/L);
+
+z_0 = [4*pi/6; -2];
+% z_0 = [.1; .1];
+
+%% Numerical solution
+% The numerical solution of $d^2(z)/(dt)^2 = -\omega^2 z$ for the time span [0, T]
+T = 10;
+tspan = linspace(0, T, 101);
+
+[t, z] = ode45(@(t, z) pendulum_system(t, z, omega), tspan, z_0);
+theta = z(:, 1);
+
+%% Approximate solution
+%
+% $$ z(t) = c_1 \cos(\omega t) + c_2*\sin(\omega t) $$
+%
+% $$dz/dt(t) = -c_1 \omega \sin(\omega t) + c_2 \omega \cos(\omega t)$$
+%
+% $$z(0) = c_1$$
+%
+% $$dz/dt(0) = c_2 \omega$$
+%
+c1 = z_0(1);
+c2 = z_0(2)/omega;
+
+%% Visualization
+% The pendulum angle as a function of time
+figure(1);
+comet(t, theta);
+hold on;
+plot(t, c1*cos(omega*t) + c2*sin(omega*t), 'REPLACE_WITH_DASH_DASHk')
+hold off
+
+%%
+% The pendulum position as a function of time
+x_pos = sin(theta);
+y_pos = -cos(theta);
+
+figure(2);
+for k = 1 : length(t)
+    plot(L*x_pos(k), L*y_pos(k), 'ok', 'MarkerFaceColor', 'k');
+    hold on;
+    line([0 L*x_pos(k)], [0 L*y_pos(k)], 'Color', 'k');
+    hold off;
+    title(['Time = ' num2str(t(k))]);
+    axis equal;
+    axis([-L, L, -L, L]);
+    drawnow;
+end
+
+%% Phase portrait
+[z_1, z_2] = meshgrid(linspace(-5*pi, 5*pi, 31), linspace(-4*pi, 4*pi, 31));
+dz_1 = z_2;
+dz_2 = -omega^2*sin(z_1);
+
+% Quiver plot
+figure(3);
+quiver(z_1, z_2, dz_1, dz_2);
+grid on;
+xlabel('$\theta$', 'Interpreter', 'latex', 'FontSize', 16);
+ylabel('$\dot{\theta}$', 'Interpreter', 'latex', 'FontSize', 16, 'Rotation', 0);
+title('Pendulum phase portrait');
+
+% Stream slice plot (trajectories)
+figure(4);
+streamslice(z_1, z_2, dz_1, dz_2);
+xlabel('$\theta$', 'Interpreter', 'latex', 'FontSize', 16);
+ylabel('$\dot{\theta}$', 'Interpreter', 'latex', 'FontSize', 16, 'Rotation', 0);
+title('Pendulum phase portrait');
+
+##### SOURCE END #####
+--></body></html>
