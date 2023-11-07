@@ -9,7 +9,7 @@ z_0 = [4*pi/6; -2];
 % z_0 = [.1; .1];
 
 %% Numerical solution
-% The numerical solution of $d^2(z)/(dt)^2 = -\omega^2 z$ for the time span [0, T]
+% The numerical solution of $d^2(z)/(dt)^2 = -\omega^2 sin(z)$ for the time span [0, T]
 T = 10;
 tspan = linspace(0, T, 101);
 
