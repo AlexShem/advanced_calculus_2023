@@ -11,6 +11,7 @@ Weekly on Wednesdays
 # 📢 Announcements
 
 * No MATLAB classes on September 13th.
+* No MATLAB classes on November 15th.
 
 # 📚 Content
 
