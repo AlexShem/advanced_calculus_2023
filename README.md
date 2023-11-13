@@ -85,3 +85,21 @@ October 18th, 2023
 - Solving the system using the Lotka-Volterra model with `ode45`
 - Comparing the trajectory's "energy" to the corresponding isoline of the system's first integral
 - Dependence of the $C$ and $L^2$ norms of the error on the integration time step $\tau$
+
+## Seminar 9: _Modelling and Simulating Pendulum Motion_
+
+November 1st, 2023
+
+- Differential equation modeling of a pendulum system
+  - Second-order ODE: $\frac{d^2 \theta}{dt^2} = -\omega^2 \sin(\theta)$
+- Numerical solution using MATLAB's `ode45`
+- Small angle approximation in the pendulum equation
+  - Simplified to: $\frac{d^2 \theta}{dt^2} \approx -\omega^2 \theta$
+- Conversion of the second-order ODE to two first-order ODEs
+  - Implementation in MATLAB
+- Approximate analytical solution for small angles
+  - $\theta(t) = c_1 \cos(\omega t) + c_2 \sin(\omega t)$
+- Visualization techniques
+  - Angle vs Time plot with dynamic `comet` function
+  - Cartesian coordinates representation
+  - Phase portrait visualization using `quiver` function
