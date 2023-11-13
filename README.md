@@ -104,3 +104,15 @@ November 1st, 2023
   - Angle vs Time plot with dynamic `comet` function
   - Cartesian coordinates representation
   - Phase portrait visualization using `quiver` function
+
+## Seminar 10: _Analysis of a Pendulum with Damping and External Force: Practice_
+
+November 8th, 2023
+
+## Seminar 9: _Pendulum with Damping and External Force_
+
+- Nonlinear ODE with Damping and External Force: Introduction of the equation $\frac{d^2\theta}{dt^2} + \frac{b}{m} \frac{d\theta}{dt} + \frac{g}{l} \sin(\theta) = F \sin(\alpha t)$.
+- Conversion to First-Order ODEs: Transforming the second-order ODE into two first-order equations.
+- Numerical Solution in MATLAB: Using MATLAB to solve the equations for various $\alpha$ values, exploring steady-state behaviors.
+- Graphical Representation: Plotting pendulum oscillation amplitudes against driving frequency $\alpha$.
+- Analytical Analysis: Discussing resonance phenomena and the impact of damping on oscillation amplitude.
