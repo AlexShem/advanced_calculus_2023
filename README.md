@@ -109,8 +109,6 @@ November 1st, 2023
 
 November 8th, 2023
 
-## Seminar 9: _Pendulum with Damping and External Force_
-
 - Nonlinear ODE with Damping and External Force: Introduction of the equation $\frac{d^2\theta}{dt^2} + \frac{b}{m} \frac{d\theta}{dt} + \frac{g}{l} \sin(\theta) = F \sin(\alpha t)$.
 - Conversion to First-Order ODEs: Transforming the second-order ODE into two first-order equations.
 - Numerical Solution in MATLAB: Using MATLAB to solve the equations for various $\alpha$ values, exploring steady-state behaviors.
