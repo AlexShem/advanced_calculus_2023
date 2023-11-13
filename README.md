@@ -115,4 +115,4 @@ November 8th, 2023
 - Conversion to First-Order ODEs: Transforming the second-order ODE into two first-order equations.
 - Numerical Solution in MATLAB: Using MATLAB to solve the equations for various $\alpha$ values, exploring steady-state behaviors.
 - Graphical Representation: Plotting pendulum oscillation amplitudes against driving frequency $\alpha$.
-- Analytical Analysis: Discussing resonance phenomena and the impact of damping on oscillation amplitude.
+- Analysis: Discussing resonance phenomena and the impact of damping on oscillation amplitude.
