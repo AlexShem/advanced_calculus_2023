@@ -28,7 +28,9 @@ axis equal;
 % This section analyzes the system's behavior over time using Poincaré sections.
 
 % Initial conditions
-initial_conditions = [0, 1.02; 0, 0.9; 0, 0.5];
+initial_conditions = [0, 1.02;
+    0, 0.9;
+    0, 0.5];
 poincare_constants = nan(size(initial_conditions, 1), 1);
 time_span = [0, 2*pi];
 
@@ -43,6 +45,8 @@ plot(initial_conditions(:, 1), initial_conditions(:, 2), '*r');
 plot(radius * cos(angle_phi), radius * sin(angle_phi), '-r', 'LineWidth', 2);
 hold off;
 axis equal;
+xlabel('x');
+ylabel('y');
 axis([-2 2 -2 2]);
 
 %% System Dynamics Definition
