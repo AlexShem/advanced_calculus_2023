@@ -2,32 +2,73 @@
 
 ## 📚 Background
 
-Polynomial interpolation, particularly through the method of Lagrange, is a critical technique for approximating complex functions that are computationally intensive to evaluate. When working with such functions, it's crucial to minimize the number of function evaluations, making the selection of interpolation nodes a task of paramount importance. Choosing the right nodes can lead to a more accurate and stable approximation, while poor selection can result in significant errors. The phenomenon of error amplification, notably in equidistant nodes, is highlighted by Runge's phenomenon, which is a stark example of the pitfalls of arbitrary node selection. The Lebesgue constant serves as a measure of the potential worst-case error, and the use of Chebyshev nodes is one strategy to mitigate the instability inherent in polynomial interpolation.
+In the realm of numerical methods, polynomial interpolation stands as a crucial technique for approximating functions that are computationally taxing to evaluate directly. The classic method of Lagrange interpolation is frequently utilized due to its straightforward conceptual framework. However, it is important to acknowledge its limitations, such as the susceptibility to large errors—exemplified by Runge's phenomenon—when interpolating over equally spaced points. This phenomenon underscores the significance of prudent node selection to mitigate error amplification. With known functions, particularly those that are computationally intensive like Runge's function
+
+$$f(x) = \frac{1}{1 + 25x^2},$$
+
+it becomes vital to choose the right interpolation nodes to achieve an accurate approximation while minimizing computational overhead.
 
 ## 🎯 Objectives
 
-1. **Understanding Interpolation Stability**: Delve into the stability of Lagrange interpolation and learn the significance of node selection on the resulting error.
-2. **Practical MATLAB Application**: Gain hands-on experience with MATLAB by using a given interpolation function and understanding numerical outputs.
-3. **Graphical Analysis**: Employ MATLAB to graphically demonstrate the Lebesgue constant for various grids, thereby visualizing interpolation errors.
-4. **Critical Analysis**: Critically evaluate the outcomes to discern the effects of different node distributions on interpolation error, and synthesize observations about node choices.
+1. **Understanding Interpolation Stability**: Investigate the stability of the Lagrange interpolation method and the influence of node selection on interpolation error.
+2. **Practical MATLAB Application**: Apply MATLAB to interpolate a given function and analyze numerical results.
+3. **Graphical Analysis**: Utilize MATLAB for graphing the interpolation error and the Lebesgue constant for both uniform and Chebyshev grids.
+4. **Error Analysis Through True Function Comparison**: Compare the interpolation results against the true function values to assess accuracy and error behavior.
 
 ## 📝 Problem Statement
 
-- Step 1: Familiarize with Provided Function
-  - Begin by reviewing the provided `LagrangeInterpolate.m` function to understand its implementation and output. You will use this function as a basis for your interpolation tasks.
-- Step 2: Compute the Lebesgue Constant
-  - Create a MATLAB script to compute and visualize the Lebesgue constant over the interval `[-1, 1]` for both uniform and Chebyshev grids.
-- Step 3: Graphical Visualization
-  - Generate plots of the Lebesgue constant against `x` for different numbers of nodes `N`, comparing the results between uniform and Chebyshev grids.
-- Step 4: Error Analysis
-  - For varying `N`, calculate the maximal Lebesgue constant over the interval `[-1, 1]` and plot these maxima against `N` to observe trends.
-- Step 5: Comparative Study
-  - Analyze your plots to compare the performance of uniform versus Chebyshev nodes in Lagrange interpolation, identifying which provides a more stable error behavior.
-- Step 6: Conclusions
-  - Conclude your investigation with a report that encapsulates your findings, focusing on the impact of node selection on Lagrange interpolation stability.
+- **Step 1: Familiarize with Provided Function.** Review and understand the provided MATLAB function `LagrangeInterpolate.m`, which you will use for interpolation.
+- **Step 2: Runge's Function Interpolation.** Use the given Runge's function `f = @(x) 1./(1 + 25*x.^2)` to generate true values for the interpolation points. This function will serve as the *"true"* function to compare against the interpolated values.
+- **Step 3: Compute and Visualize Errors.** Compute the interpolation error for both uniform `x_uniform = linspace(a, b, N)` and Chebyshev grids `x_chebyshev = cos((2*k+1)*pi/(2*N))`, `k = 0:N-1`, by subtracting the true function values from the interpolated values at a fine grid of points `x_fine = linspace(a, b, 1000).'`.
+- **Step 4: Graphical Visualization of Errors.** Plot the interpolation error against the fine grid points for different numbers of nodes `N = 5:10:45`. You should have two graphs for each `N`: one for uniform nodes and one for Chebyshev nodes.
+- **Step 5: Analysis of the Lebesgue Constant.** Calculate the maximum interpolation error (Lebesgue constant, `max(abs(y_interp_grid - y_true))`) for each `N` and grid type, and plot these maxima as a function of `N`.
+- **Step 6: Comparative Study and Conclusions.** Conclude your investigation by comparing the two sets of nodes. Discuss which node distribution—uniform or Chebyshev—yields a more stable approximation of the true function.
 
-## 📊 Example Graphs
+## 📊 Expected Outputs and Example Graphs
 
-[Space for Example Graphs]
+### Graphs for Interpolation Error
 
-This section will feature visual guides representing the Lebesgue constant plots for both uniform and Chebyshev grids. These example graphs will guide students in understanding the expected patterns and the comparative stability of Lagrange interpolation across different node choices.
+For each `N`, two plots showing the interpolation error should be generated. The x-axis will represent the range of interpolation points, and the y-axis will represent the error magnitude.
+
+![error_N5](figures/error_5.png)
+
+![error_N25](figures/error_25.png)
+
+### Plot of Maximum Interpolation Error
+
+- A single plot comparing the maximum interpolation error as a function of `N` for both uniform and Chebyshev nodes. The x-axis will represent the number of nodes `N`, and the y-axis will represent the maximum error observed.
+
+![final_graph](figures/error_max_N.png)
+
+## LagrangeInterpolate.m
+
+```matlab
+function y = LagrangeInterpolate(x_val, y_val, x)
+% Validate Inputs
+if isempty(x_val) || isempty(y_val) || isempty(x)
+    error('Input arrays x_val, y_val, and x must be non-empty.');
+end
+if ~isnumeric(x_val) || ~isnumeric(y_val) || ~isnumeric(x)
+    error('All inputs must be numeric arrays.');
+end
+if length(x_val) ~= length(y_val)
+    error('Arrays x_val and y_val must be of the same length.');
+end
+if length(unique(x_val)) < length(x_val)
+    error('Elements in x_val must be unique.');
+end
+
+% Reshape inputs to column vectors
+x_val = x_val(:).';
+y_val = y_val(:).';
+x = x(:);
+
+% Lagrange Interpolation
+n = length(x_val);
+L = zeros(length(x), n);
+for i = 1:n
+    L(:, i) = prod((x - x_val(1:n ~= i)) ./ (x_val(i) - x_val(1:n ~= i)), 2);
+end
+y = L * y_val.';
+end
+```
