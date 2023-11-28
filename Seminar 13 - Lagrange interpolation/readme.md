@@ -36,7 +36,7 @@ For each `N`, two plots showing the interpolation error should be generated. The
 
 ### Plot of Maximum Interpolation Error
 
-- A single plot comparing the maximum interpolation error as a function of `N` for both uniform and Chebyshev nodes. The x-axis will represent the number of nodes `N`, and the y-axis will represent the maximum error observed.
+A single plot comparing the maximum interpolation error as a function of `N` for both uniform and Chebyshev nodes. The x-axis will represent the number of nodes `N`, and the y-axis will represent the maximum error observed.
 
 ![final_graph](figures/error_max_N.png)
 
