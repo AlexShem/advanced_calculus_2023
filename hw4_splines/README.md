@@ -13,7 +13,7 @@ Cubic spline interpolation is a sophisticated technique used in numerical method
 
 ## 📝 Problem Statement
 
-- **Step 1: Understand the Provided Function.** Review the provided MATLAB functions [`hermite_interp`](https://github.com/AlexShem/advanced_calculus_2023/blob/hw4_materials/hw4_splines/hermite_interp.m) and [`spline_custom`](https://github.com/AlexShem/advanced_calculus_2023/blob/hw4_materials/hw4_splines/spline_custom.m), and understand their implementation.
+- **Step 1: Understand the Provided Function.** Review the provided MATLAB functions [`hermite_interp`](https://github.com/AlexShem/advanced_calculus_2023/blob/main/hw4_splines/hermite_interp.m) and [`spline_custom`](https://github.com/AlexShem/advanced_calculus_2023/blob/main/hw4_splines/spline_custom.m), and understand their implementation.
 - **Step 2: Interpolating Runge's Function.** Use the Runge's function `f = @(x) k*sin(m*x)./(1 + 25*x.^2)` for generating true function values. Interpolate these values using the custom cubic spline functions.
 - **Step 3: Compute and Visualize Errors.** Calculate the interpolation error using both uniform `x_uniform = linspace(-2, 2, N)` and Chebyshev `x_chebyshev = cos(pi*(t + .5)/N)`, where `t = 0:(N-1)`, on the segment $x\in[−2,2]$. Use a fine grid `x_fine = linspace(-2, 2, 1001)` to compare the interpolated values against the true function values. The error should be computed as the absolute difference between the interpolated and true values.
 - **Step 4: Compare with MATLAB's Spline.** Perform the same interpolation using MATLAB's built-in [`spline`](https://ch.mathworks.com/help/matlab/ref/spline.html) function and compare the results.
