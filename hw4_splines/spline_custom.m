@@ -65,8 +65,6 @@ for k = 1 : N
     else
         range = x >= x_val(k) & x < x_val(k + 1);
     end
-%     range = (k == N) * (x >= x_val(k) & x <= x_val(k + 1)) + ...
-%         (k < N) * (x >= x_val(k) & x < x_val(k + 1));
     S(range) = hermite_interp(x(range), x_val(k), x_val(k + 1), ...
         [y_val(k), m(k), y_val(k + 1), m(k + 1)]);
 end
