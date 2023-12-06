@@ -101,11 +101,11 @@ legend({'$\sin(x)$', '$R_{1,2}(x)$'}, 'Interpreter', 'latex', 'FontSize', 14, 'L
 
 ## 4. Function with a Singularity: Implementation and Visualisation
 
-- Introduction to the function with a singularity (\( \ln(x) \)).
+- Introduction to the function with a singularity $\ln(x)$.
 - MATLAB code for the logarithm example.
 - Analysis of visualisations demonstrating the approximation near the singularity.
 
-In this section, we focus on a function with a singularity, specifically ln⁡(x) \\ln(x) ln(x), and demonstrate how the Padé approximation can be effectively used to approximate it. We will expand ln⁡(x) \\ln(x) ln(x) at the point x\=1 x = 1 x\=1 using a \[2 2\] Padé approximant.
+In this section, we focus on a function with a singularity, specifically $\ln(x)$, and demonstrate how the Padé approximation can be effectively used to approximate it. We will expand $\ln(x)$ at the point $x = 1$ using a \[2 2\] Padé approximant.
 
 ### Mathematical Formulation for $\ln(x)$ Padé Approximant
 
@@ -157,7 +157,7 @@ The plot will show how the Padé approximant closely follows the logarithm funct
 
 ## 5. Rapidly Oscillating Function: Implementation and Visualisation
 
-- Introduction to the rapidly oscillating function (\( e^{-x^2} \cos(10x) \)).
+- Introduction to the rapidly oscillating function $e^{-x^2} \cos(10x)$.
 - MATLAB code for the oscillating function example.
 - Insights from the visualisations highlighting the challenges of approximating rapidly changing functions.
 
