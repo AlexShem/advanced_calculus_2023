@@ -114,3 +114,26 @@ November 8th, 2023
 - Numerical Solution in MATLAB: Using MATLAB to solve the equations for various $\alpha$ values, exploring steady-state behaviors.
 - Graphical Representation: Plotting pendulum oscillation amplitudes against driving frequency $\alpha$.
 - Analysis: Discussing resonance phenomena and the impact of damping on oscillation amplitude.
+
+## Seminar 13: _Lagrange Interpolation and Error Analysis_
+
+November 29th, 2023
+
+- **Introduction to Lagrange Polynomial Interpolation**:
+    - Concept and mathematical formulation of the Lagrange interpolation method.
+    - The significance of polynomial interpolation in numerical analysis.
+- **Runge's Phenomenon and Node Selection**:
+    - Exploring Runge's phenomenon in the context of polynomial interpolation.
+    - Importance of node selection, comparing uniform and Chebyshev nodes.
+- **MATLAB Implementation and Practical Application**:
+    - Utilizing `LagrangeInterpolate.m` function for interpolating Runge's function.
+    - MATLAB coding practices for implementing and analyzing interpolation methods.
+- **Error Analysis and Comparison**:
+    - Quantitative assessment of interpolation errors using uniform and Chebyshev nodes.
+    - Analyzing the error behavior and its dependency on the number of nodes.
+- **Graphical Visualization of Errors**:
+    - Creating plots in MATLAB to visualize interpolation errors for different node distributions.
+    - Graphical comparison of errors for varying numbers of nodes.
+- **Lebesgue Constant in Error Estimation**:
+    - Calculation and graphical representation of the Lebesgue constant for different grids.
+    - Analyzing the maximum interpolation error as a function of the number of nodes.
