@@ -137,3 +137,27 @@ November 29th, 2023
 - **Lebesgue Constant in Error Estimation**:
     - Calculation and graphical representation of the Lebesgue constant for different grids.
     - Analyzing the maximum interpolation error as a function of the number of nodes.
+
+## Seminar 14: _Splines, Padé Approximation, and Symbolic Computations in MATLAB_
+
+December 6th, 2023
+
+- **Splines and Boundary Conditions**:  
+    - Construction of spline functions in MATLAB.
+    - Emphasis on boundary conditions for spline interpolation.
+    - Comparison with MATLAB's built-in `spline()` function.
+- **Interpolation Error Analysis**:
+    - Investigating the interpolation error for splines on a uniform grid.
+    - Error quantification using the $C$ norm and $L^2$ norm.
+    - MATLAB code for error computation and graphical representation.
+- **Introduction to Padé Approximation**:
+    - Concept and mathematical background of Padé approximants.
+    - Comparison of approximation accuracy between Padé and Taylor series.
+    - MATLAB implementation of Padé approximants for different polynomial degrees.
+- **Practical Application Examples**:
+    - Padé approximation for functions like $\sin(x)$ and $\ln(x)$.
+    - Graphical comparison of the original function and its Padé approximation in MATLAB.
+- **Symbolic Computations in MATLAB**:
+    - Introduction to symbolic computations using MATLAB's Symbolic Math Toolbox.
+    - Practical examples demonstrating symbolic variable definition and function manipulation.
+    - Graphical visualization of symbolic expressions and their approximations.
