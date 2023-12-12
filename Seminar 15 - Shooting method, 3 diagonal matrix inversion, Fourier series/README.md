@@ -17,7 +17,7 @@ The **Shooting Method** is a numerical technique used to solve boundary value pr
 
 Given a second-order ODE:
 
-$$r(x)\,y'' = g(x) - r'(x)\,y' - q(x)\,y$$
+$$r(x) y'' = g(x) - r'(x) y' - q(x) y$$
 
 with boundary conditions $y(a) = \alpha$ and $y(b) = \beta$, we aim to find a solution $y(x)$ that satisfies these conditions.
 
@@ -94,13 +94,13 @@ $$y(x) = e^{x/2}$$
 
 Fourier approximation of the function $f(x) = -x/2$ applied periodically from $-\pi$ to $\pi$ can be represented as:
 
-$$ f(x) = -\frac{x}{2} = \sum_{k=1}^\infty (-1)^k\,\frac{\sin(kx)}{k}$$
+$$ f(x) = -\frac{x}{2} = \sum_{k=1}^\infty (-1)^k \frac{\sin(kx)}{k}$$
 
 ### Fourier Series of the Derivative
 
 The derivative of $-\frac{x}{2}$ is a constant $-\frac{1}{2}$​. However, when decomposed into a Fourier series, the representation includes a delta function:
 
-$$f'(x) = -\frac{1}{2} + \pi\,\delta(x - 2\pi m) = \sum_{k=1}^\infty \cos(kx)$$
+$$f'(x) = -\frac{1}{2} + \pi \delta(x - 2\pi m) = \sum_{k=1}^\infty \cos(kx)$$
 
 where $m$ is an integer, and $\delta(x - 2\pi m)$ is the Dirac delta function.
 
