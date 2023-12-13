@@ -94,7 +94,7 @@ $$y(x) = e^{x/2}$$
 
 Fourier approximation of the function $f(x) = -x/2$ applied periodically from $-\pi$ to $\pi$ can be represented as:
 
-$$ f(x) = -\frac{x}{2} = \sum_{k=1}^\infty (-1)^k \frac{\sin(kx)}{k}$$
+$$f(x) = -\frac{x}{2} = \sum_{k=1}^\infty (-1)^k \frac{\sin(kx)}{k}$$
 
 ### Fourier Series of the Derivative
 
