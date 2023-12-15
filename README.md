@@ -161,3 +161,19 @@ December 6th, 2023
     - Introduction to symbolic computations using MATLAB's Symbolic Math Toolbox.
     - Practical examples demonstrating symbolic variable definition and function manipulation.
     - Graphical visualization of symbolic expressions and their approximations.
+
+## Seminar 15: _Shooting Method and Fourier Series Decomposition_
+
+December 13th, 2023
+
+- **Shooting Method for Boundary Value Problems**:
+    - Conversion of second-order ODEs to first-order systems.
+    - Implementation in MATLAB, iterating through initial slopes.
+    - Visualization of solution paths.
+- **Fourier Series Demonstration**:
+    - Fourier series for $f(x)=-x/2$.
+    - Plotting function and its Fourier series in MATLAB.
+    - Fourier series for its derivative.
+- **Analytical and Visual Comparison**:
+    - Comparing numerical solutions with theoretical.
+    - Interpretation of results from both Shooting Method and Fourier series analyses.
